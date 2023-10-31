@@ -3,7 +3,7 @@ import { useState } from "react";
 const TodoForm = () => {
   const [name, setName] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
     setName(e.target.value);
   };
 
@@ -13,7 +13,7 @@ const TodoForm = () => {
         className="flex-1 border-none outline-none px-12 py-3 bg-transparent"
         placeholder="Add To Do"
         value={name}
-        onChange={handleSubmit}
+        onChange={handleChange}
       />
       <button
         type="submit"

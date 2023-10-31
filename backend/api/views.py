@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from .serializerz import TodoSerializer
 from .models import Todo
 
@@ -7,5 +7,6 @@ from .models import Todo
 
 
 class TodoViewSet(viewsets.ModelViewSet):
-    serializer_class = TodoSerializer
+    permission_classes = [permissions.AllowAny]
     queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
