@@ -29,7 +29,7 @@ const TodoList = ({ todos, setTodos }) => {
         setTodos(newTodos);
       })
       .catch(() => {
-        console.log("Something went wrong.");
+        console.log("Error updating the todo.");
       });
   };
 
@@ -42,6 +42,19 @@ const TodoList = ({ todos, setTodos }) => {
     setDialogOpen(false);
     setSelectedTodo(null);
   };
+
+  const handleDelete = (id) => {
+    axios.delete(`${url}/${id}`)
+      .then(() => {
+        const newTodos = todos.filter(todo => {
+          return todo.id !== id
+        })
+        setTodos(newTodos)
+      })
+      .catch(() => {
+        console.log('Error deleting the todo');
+      })
+  }
 
   return (
     <div>
@@ -71,6 +84,9 @@ const TodoList = ({ todos, setTodos }) => {
                 <DeleteIcon
                   sx={{ cursor: "pointer", marginLeft: "20px" }}
                   color="error"
+                  onClick={() => {
+                    handleDelete(todo.id)
+                  }}
                 />
               </div>
             </li>
