@@ -5,7 +5,7 @@ import axios from "axios";
 const TodoForm = ({ todos, setTodos }) => {
   const [name, setName] = useState("");
 
-  const url = "http://localhost:8000/api/todos/";
+  const url = import.meta.env.VITE_API_URL
 
   const handleChange = (e) => {
     setName(e.target.value);

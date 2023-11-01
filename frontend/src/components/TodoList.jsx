@@ -12,7 +12,7 @@ const TodoList = ({ todos, setTodos }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState(null);
 
-  const url = "http://localhost:8000/api/todos";
+  const url = import.meta.env.VITE_API_URL
 
   const handleUpdate = async (id, value) => {
     const newTodos = todos.map((todo) => {

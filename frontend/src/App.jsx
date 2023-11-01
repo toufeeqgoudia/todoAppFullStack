@@ -7,8 +7,7 @@ import axios from "axios";
 const App = () => {
   const [todos, setTodos] = useState([]);
 
-  // const url = "/api/todos/"
-  const url = "http://localhost:8000/api/todos";
+  const url = import.meta.env.VITE_API_URL
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -21,7 +20,7 @@ const App = () => {
     };
 
     fetchTodos();
-  }, []);
+  }, [url]);
 
   return (
     <div>
