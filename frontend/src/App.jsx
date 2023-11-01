@@ -2,24 +2,24 @@ import { useState, useEffect } from "react";
 import TodoList from "./components/ToDoList";
 import TodoForm from "./components/TodoForm";
 import imgIcon from "./assets/images/icon.png";
+import axios from "axios";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
 
   // const url = "/api/todos/"
-  const url = "http://localhost:8000/api/todos"
+  const url = "http://localhost:8000/api/todos";
 
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const res = await fetch(url);
-        const data = await res.json();
-        setTodos(data);
+        const response = await axios.get(url);
+        setTodos(response.data);
       } catch (error) {
         console.error("Error fetching todos:", error);
       }
     };
-  
+
     fetchTodos();
   }, []);
 
@@ -33,7 +33,7 @@ const App = () => {
       </div>
       <div className="max-w-xl w-full bg-white p-5 rounded-xl">
         <TodoForm />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} setTodos={setTodos} />
       </div>
     </div>
   );
