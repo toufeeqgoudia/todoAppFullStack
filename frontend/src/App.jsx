@@ -32,7 +32,7 @@ const App = () => {
         <img src={imgIcon} alt="To Do Icon" className="w-10" />
       </div>
       <div className="max-w-xl w-full bg-white p-5 rounded-xl">
-        <TodoForm />
+        <TodoForm todos={todos} setTodos={setTodos} />
         <TodoList todos={todos} setTodos={setTodos} />
       </div>
     </div>

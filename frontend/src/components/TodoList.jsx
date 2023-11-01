@@ -44,17 +44,18 @@ const TodoList = ({ todos, setTodos }) => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`${url}/${id}`)
+    axios
+      .delete(`${url}/${id}`)
       .then(() => {
-        const newTodos = todos.filter(todo => {
-          return todo.id !== id
-        })
-        setTodos(newTodos)
+        const newTodos = todos.filter((todo) => {
+          return todo.id !== id;
+        });
+        setTodos(newTodos);
       })
       .catch(() => {
-        console.log('Error deleting the todo');
-      })
-  }
+        console.log("Error deleting the todo");
+      });
+  };
 
   return (
     <div>
@@ -85,7 +86,7 @@ const TodoList = ({ todos, setTodos }) => {
                   sx={{ cursor: "pointer", marginLeft: "20px" }}
                   color="error"
                   onClick={() => {
-                    handleDelete(todo.id)
+                    handleDelete(todo.id);
                   }}
                 />
               </div>
