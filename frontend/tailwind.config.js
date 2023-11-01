@@ -13,6 +13,9 @@ export default {
       textColor: {
         'orbg': '#ff5945',
       },
+      boxShadow: {
+        'bn' : '0 0 10px #696969',
+      },
     },
   },
   plugins: [],

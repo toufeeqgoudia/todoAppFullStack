@@ -26,7 +26,7 @@ const EditTodo = ({
       <dialog
         open={isOpen}
         onClose={onClose}
-        className="w-96 p-5 bg-slate-300 -my-96 mx-auto rounded-xl shadow-xl "
+        className="w-96 p-5 bg-slate-300 mx-auto rounded-xl shadow-bn"
       >
         <form className="flex flex-col">
           <h3 className="font-bold text-lg text-black mb-5">Edit Todo</h3>
